@@ -14,7 +14,7 @@ function eur(n){return "\u20ac"+n}
 window.KADENRA={toast:toast};
 // mobile menu
 var mb=$(".menu-btn"),dr=$("#drawer");
-if(mb&&dr){mb.addEventListener("click",function(){var o=dr.classList.toggle("open");mb.setAttribute("aria-expanded",o);document.body.classList.toggle("lock",o);if(o){var f=$("a",dr);f&&f.focus()}});
+if(mb&&dr){mb.addEventListener("click",function(){var hb=document.querySelector(".hdr").getBoundingClientRect().bottom;dr.style.top=Math.max(0,hb)+"px";var o=dr.classList.toggle("open");mb.setAttribute("aria-expanded",o);document.body.classList.toggle("lock",o);if(o){var f=$("a",dr);f&&f.focus()}});
  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&dr.classList.contains("open")){dr.classList.remove("open");mb.setAttribute("aria-expanded","false");document.body.classList.remove("lock");mb.focus()}})}
 // demo forms: never submitted anywhere
 $$("form[data-demo]").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();var kind=f.getAttribute("data-demo");
